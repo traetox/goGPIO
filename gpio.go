@@ -1,4 +1,4 @@
-package gpio
+package goGPIO
 
 import (
 	"fmt"
