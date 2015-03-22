@@ -1,3 +1,4 @@
+// +build cgo
 package gpio
 
 import (

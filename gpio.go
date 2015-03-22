@@ -13,9 +13,9 @@ const (
 )
 
 type GPIO struct {
-	id   int
+	id    int
 	state bool
-	mtx  *sync.Mutex
+	mtx   *sync.Mutex
 }
 
 func New(id int) (*GPIO, error) {
@@ -34,8 +34,8 @@ func New(id int) (*GPIO, error) {
 		return nil, err
 	}
 	return &GPIO{
-		id: id,
-		mtx: &sync.Mutex{},
+		id:    id,
+		mtx:   &sync.Mutex{},
 		state: st,
 	}, nil
 }
