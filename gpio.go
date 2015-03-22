@@ -85,7 +85,7 @@ func (g *GPIO) SetOutput() error {
 func (g *GPIO) Toggle() error {
 	g.mtx.Lock()
 	defer g.mtx.Unlock()
-	if err := setState(g.id, g.state); err != nil {
+	if err := setState(g.id, !g.state); err != nil {
 		return err
 	}
 	g.state = !g.state
@@ -110,6 +110,12 @@ func (g *GPIO) On() error {
 	}
 	g.state = true
 	return nil
+}
+
+func (g *GPIO) State() bool {
+	g.mtx.Lock()
+	defer g.mtx.Unlock()
+	return g.state
 }
 
 func (g *GPIO) WaitForFalling() error {
