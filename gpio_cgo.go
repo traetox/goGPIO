@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 )
+
 /*
 #cgo LDFLAGS: -fpic
 #include <poll.h>
@@ -76,6 +77,3 @@ func setInterruptEdge(id int, falling bool) error {
 	}
 	return nil
 }
-
-
-

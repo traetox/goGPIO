@@ -88,10 +88,10 @@ func (g *GPIO) On() error {
 	return nil
 }
 
-func (g *GPIO) State() bool {
+func (g *GPIO) State() (bool, error) {
 	g.mtx.Lock()
 	defer g.mtx.Unlock()
-	return g.state
+	return getState(g.id)
 }
 
 func checkGpio(id int) error {
